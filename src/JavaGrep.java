@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 import com.ramesh.matcher.*;
 
 public class JavaGrep {
@@ -12,9 +10,8 @@ public class JavaGrep {
 		// System.out.println("default: " + javaMatcher.isMatched(args[i]));
 		// System.out.println("custom: " + customMatcher.isMatched(args[i]));
 		// }
-		LinkedList<Node> nodesList = new LinkedList<Node>();
-		AutomataBasedMatcher matcher = new AutomataBasedMatcher("((abc)*a)+ba*b.");
-		nodesList = matcher.constructFSA("((abc)*a)+c*b.");
+		AutomataBasedMatcher matcher = new AutomataBasedMatcher("(ab)*(ac)*");
+		System.out.println(matcher.isMatched("ab"));
 
 	}
 
