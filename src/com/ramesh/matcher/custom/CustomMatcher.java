@@ -1,6 +1,7 @@
-package com.ramesh.matcher;
+package com.ramesh.matcher.custom;
 
-import com.ramesh.matcher.StringMatcher;
+import com.ramesh.matcher.RegexMatcher;
+import com.ramesh.matcher.custom.StringMatcher;
 
 /**
  * Custom implementation for string matcher

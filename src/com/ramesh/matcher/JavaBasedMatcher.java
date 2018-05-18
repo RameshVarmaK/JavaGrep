@@ -2,6 +2,7 @@ package com.ramesh.matcher;
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import com.ramesh.matcher.custom.StringMatcher;
 
 /**
  * String matcher to check weather text is equal to pattern or not
