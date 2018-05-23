@@ -1,8 +1,35 @@
 public class Configuration {
     private String pattern;
     private Matcher matcher;
-    private InputFormat inputFormat;
-    private String inputSource;
+    private InputSource inputSource;
+    private String inputSourceData;
+    private OutputSource outputSource;
+    private String outputSourceData;
+    private OutputType outputType;
+
+    public OutputSource getOutputSource() {
+        return outputSource;
+    }
+
+    public void setOutputSource(OutputSource outputSource) {
+        this.outputSource = outputSource;
+    }
+
+    public OutputType getOutputType() {
+        return outputType;
+    }
+
+    public void setOutputType(OutputType outputType) {
+        this.outputType = outputType;
+    }
+
+    public String getOutputSourceData() {
+        return outputSourceData;
+    }
+
+    public void setOutputSourceData(String outputSourceData) {
+        this.outputSourceData = outputSourceData;
+    }
 
     public String getPattern() {
         return pattern;
@@ -20,19 +47,19 @@ public class Configuration {
         this.matcher = matcher;
     }
 
-    public InputFormat getInputType() {
-        return inputFormat;
-    }
-
-    public void setInputType(InputFormat inputFormat) {
-        this.inputFormat = inputFormat;
-    }
-
-    public String getInputSource() {
+    public InputSource getInputSource() {
         return inputSource;
     }
 
-    public void setInputSource(String inputSource) {
+    public void setInputSource(InputSource inputSource) {
         this.inputSource = inputSource;
+    }
+
+    public String getInputSourceData() {
+        return inputSourceData;
+    }
+
+    public void setInputSourceData(String inputSourceData) {
+        this.inputSourceData = inputSourceData;
     }
 }

@@ -5,14 +5,13 @@ import java.io.IOException;
 
 public class DirectoryProcessor {
 
-    public void process(StringMatcher pattern,String directory) throws IOException {
+    public void process(String directory) throws IOException {
         File folder=new File(directory);
         File[] listOfFiles = folder.listFiles();
         assert listOfFiles != null;
         for (File listOfFile : listOfFiles) {
             if (listOfFile.isFile()) {
-                FileProcessor file = new FileProcessor();
-                file.process(pattern, listOfFile.toString());
+                System.out.println(listOfFile.getName());
             }
         }
     }

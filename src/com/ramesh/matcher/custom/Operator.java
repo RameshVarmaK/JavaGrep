@@ -33,7 +33,7 @@ public enum Operator {
         this.symbol = symbol;
     }
 
-    public static Operator getNameForValue(Object value) {
+    public static Operator get(Object value) {
         Operator[] values = Operator.values();
         for (Operator operator : values) {
             if (value.equals(operator.symbol)) {

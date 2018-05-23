@@ -31,7 +31,7 @@ public class automataBuilder {
     public Node build(StringBuilder pattern) {
         Context wrap = new Context();
         for (int i = 0; i < pattern.length(); i++) {
-            if (Operator.getNameForValue(pattern.charAt(i)) != null) {
+            if (Operator.get(pattern.charAt(i)) != null) {
                 operand(wrap, pattern.charAt(charPosition(i, pattern)));
             } else if (pattern.charAt(i) == '$') {
                 int nextToOperator = charPosition(i, pattern) - 1;
@@ -54,8 +54,8 @@ public class automataBuilder {
     private Optional<Operator> getOperator(int position, StringBuilder pattern) {
         Optional<Operator> operator = Optional.empty();
         while (position >= 0) {
-            if (Operator.getNameForValue(pattern.charAt(position)) != null) {
-                operator = Optional.of(Objects.requireNonNull(Operator.getNameForValue(pattern.charAt(position))));
+            if (Operator.get(pattern.charAt(position)) != null) {
+                operator = Optional.of(Objects.requireNonNull(Operator.get(pattern.charAt(position))));
                 pattern.deleteCharAt(position);
                 break;
             }
@@ -67,7 +67,7 @@ public class automataBuilder {
     private int charPosition(int position, StringBuilder pattern) {
         int nextToOperator = position + 1;
         while (nextToOperator >= 1) {
-            if (Operator.getNameForValue(pattern.charAt(nextToOperator - 1)) != null) {
+            if (Operator.get(pattern.charAt(nextToOperator - 1)) != null) {
                 break;
             }
             nextToOperator--;

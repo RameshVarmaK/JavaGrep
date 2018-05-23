@@ -1,14 +1,23 @@
-import com.ramesh.matcher.custom.AutomataBasedMatcher;
+import com.ramesh.matcher.custom.DirectoryProcessor;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
-public class Tester {
-        public static void main(String[] args) throws IOException {
-            AutomataBasedMatcher matcher=new AutomataBasedMatcher("a*b");
-            System.out.println(matcher.isMatched("aaaaab"));
-//        FileProcessor fp = new FileProcessor();
-//        fp.process("/home/rameshv/IdeaProjects/JavaGrep/src/input.txt");
 
-        }
+public class Tester {
+    public static void main(String[] args) throws IOException {
+
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("sample1.txt"));
+        bufferedWriter.write("uebf");
+        bufferedWriter.write("sad");
+        bufferedWriter.newLine();
+        bufferedWriter.write("hyb");
+        bufferedWriter.flush();
+        DirectoryProcessor dp = new DirectoryProcessor();
+        dp.process("/home/rameshv/IdeaProjects/JavaGrep/src/test");
+
+
+    }
 
 }

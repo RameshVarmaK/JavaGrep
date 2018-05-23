@@ -6,13 +6,38 @@ public class JavaGrep {
         Configuration configuration = new Configuration();
         configuration.setPattern(args[getPatternPosition(args)]);
         configuration.setMatcherType(getMatcher(args));
-        configuration.setInputType(getInputType(args));
-        configuration.setInputSource(args[getInputSource(args)]);
+        configuration.setInputSource(InputSource.getNameForValue(args[getInputType(args)]));
+        configuration.setInputSourceData(args[getInputType(args)+1]);
+        configuration.setOutputSource(OutputSource.get(args[getOutputSourcePosition(args)]));
+        configuration.setOutputSourceData(getOutputSourceData(args));
+        configuration.setOutputType(getOutputType(args));
         MatcherApp matcherApp = new MatcherApp();
         matcherApp.matcher(configuration);
 
     }
 
+    private static OutputType getOutputType(String[] args){
+        for (int i=0;i<args.length;i++) {
+            if (OutputType.get(args[i]) != null) {
+                return OutputType.get(args[i]);
+            }
+        }
+        return null;
+    }
+    private static String getOutputSourceData(String[] args){
+        if(OutputSource.get(args[getOutputSourcePosition(args)])==OutputSource.FILE){
+            return args[getOutputSourcePosition(args)+1];
+        }
+        return null;
+    }
+    private static int getOutputSourcePosition(String[] args){
+        for (int i=0;i<args.length;i++) {
+            if (OutputSource.get(args[i]) != null) {
+                return i;
+            }
+        }
+        return -1;
+    }
     private static int getPatternPosition(String[] args) {
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("-p")) {
@@ -23,31 +48,22 @@ public class JavaGrep {
     }
 
     private static Matcher getMatcher(String[] args) {
-        for (String arg : args) {
-            if (Matcher.getNameForValue(arg) != null) {
-                return Matcher.getNameForValue(arg);
+        for (int i=0;i<args.length;i++) {
+            if (Matcher.getNameForValue(args[i]) != null) {
+                return Matcher.getNameForValue(args[i]);
             }
         }
         return null;
     }
 
 
-    private static int getInputSource(String[] args) {
+    private static int getInputType(String[] args) {
         for (int i = 0; i < args.length; i++) {
-            if (InputFormat.getNameForValue(args[i]) != null) {
-                return i + 1;
+            if (InputSource.getNameForValue(args[i]) != null) {
+                return i;
             }
         }
         return -1;
-    }
-
-    private static InputFormat getInputType(String[] args) {
-        for (int i = 0; i < args.length; i++) {
-            if (InputFormat.getNameForValue(args[i]) != null) {
-                return InputFormat.getNameForValue(args[i]);
-            }
-        }
-        return null;
     }
 
 }

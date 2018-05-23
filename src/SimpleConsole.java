@@ -12,9 +12,9 @@ public class SimpleConsole {
         System.out.println("Enter type of matcher : -c for customMatcher and -j for javaMatcher");
         configuration.setMatcherType(Matcher.getNameForValue(scanner.nextLine()));
         System.out.println("Enter type of input : -f for file , -d for directory and  -t for text");
-        configuration.setInputType(InputFormat.getNameForValue(scanner.nextLine()));
+        configuration.setInputSource(InputSource.getNameForValue(scanner.nextLine()));
         System.out.println("Enter input source : ");
-        configuration.setInputSource(scanner.nextLine());
+        configuration.setInputSourceData(scanner.nextLine());
         MatcherApp matcherApp=new MatcherApp();
         matcherApp.matcher(configuration);
     }

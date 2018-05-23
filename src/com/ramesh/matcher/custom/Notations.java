@@ -8,7 +8,7 @@ public class Notations {
         Stack<Character> operatorStack = new Stack<>();
         StringBuilder resultPattern = new StringBuilder();
         for (int i = 0; i < pattern.length(); i++) {
-            if (Operator.getNameForValue(pattern.charAt(i)) != null) {
+            if (Operator.get(pattern.charAt(i)) != null) {
                 //If the token is an operator, *, /, +, or -, push it on the opstack. However, first
                 // remove any operators already on the opstack that have higher or equal precedence and append them to the output list.
                 if (operatorStack.size() > 0 && !operatorStack.contains('(')) {

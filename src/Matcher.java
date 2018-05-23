@@ -20,7 +20,7 @@ public enum Matcher {
         this.symbol = symbol;
     }
 
-    public static Matcher getNameForValue(Object value) {
+    public static Matcher getNameForValue(String value) {
         Matcher[] values = Matcher.values();
         for (Matcher matcher : values) {
             if (value.equals(matcher.symbol)) {
