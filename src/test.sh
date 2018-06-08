@@ -1,9 +1,9 @@
 #! /bin/bash
-DIRECTORY_SOURCE="/home/rameshv/IdeaProjects/JavaGrep/src/test"
-FILE_SOURCE="/home/rameshv/IdeaProjects/JavaGrep/src/input.txt"
+DIRECTORY_SOURCE="/home/rameshv/IdeaProjects/CommandLine/src/test"
+FILE_SOURCE="/home/rameshv/IdeaProjects/CommandLine/src/input.txt"
 TEXT_SOURCE="abc"
 
-CLASS_FILE="JavaGrep"
+CLASS_FILE="CommandLine"
 EXEC="java $CLASS_FILE"
 echo "------JavaMatcher--------"
 com=" $EXEC '-j' '-p' 'abc*a+c*b.' '-d' $DIRECTORY_SOURCE"
